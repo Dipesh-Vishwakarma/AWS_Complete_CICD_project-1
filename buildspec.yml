@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_DEFAULT_REGION: eu-north-1
+    ECR_REPO_URI: 831516339607.dkr.ecr.us-east-2.amazonaws.com/ecr-web-app
+    IMAGE_TAG: latest
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION |
+        docker login --username AWS --password-stdin $ECR_REPO_URI
+
+  build:
+    commands:
+      - echo Build started
+      - cd AWS_resource
+      - docker build -t $ECR_REPO_URI:$IMAGE_TAG .
+
+  post_build:
+    commands:
+      - echo Push image
+      - docker push $ECR_REPO_URI:$IMAGE_TAG
+      - printf '[{"name":"web","imageUri":"%s"}]' $ECR_REPO_URI:$IMAGE_TAG > imagedefinitions.json
+
+artifacts:
+  files:
+    - AWS_resource/imagedefinitions.json
