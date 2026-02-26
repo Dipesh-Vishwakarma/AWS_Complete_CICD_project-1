@@ -1,28 +1,11 @@
-# Dockerized Flask Web Application using AWS Services
-
-## 📋 Table of Contents
-
-- [Project Overview](#project-overview)
-- [Architecture](#architecture)
-- [AWS Services Used](#aws-services-used)
-- [Prerequisites](#prerequisites)
-- [Project Structure](#project-structure)
-- [Step-by-Step Implementation Guide](#step-by-step-implementation-guide)
-- [Workflow Diagrams](#workflow-diagrams)
-- [Configuration Files](#configuration-files)
-- [Deployment Process](#deployment-process)
-- [Troubleshooting](#troubleshooting)
-- [Downloadable Resources](#downloadable-resources)
-- [References](#references)
-
----
+# Dockerized Web Application using AWS Services
 
 ## 🎯 Project Overview
 
-This project demonstrates a complete end-to-end CI/CD pipeline for deploying a Dockerized Flask web application to AWS using multiple AWS services. The application is a modern DevOps Engineer portfolio website that showcases skills, projects, and services.
+This project demonstrates a complete end-to-end CI/CD pipeline for deploying a Dockerized web application to AWS using multiple AWS services. The application is a modern DevOps Engineer portfolio website that showcases skills, projects, and services.
 
 ### Key Features:
-- **Containerized Application**: Flask web app containerized with Docker
+- **Containerized Application**: Web app containerized with Docker
 - **Automated CI/CD Pipeline**: Using AWS CodePipeline and CodeBuild
 - **Container Registry**: Amazon ECR for storing Docker images
 - **Container Orchestration**: Amazon ECS for running containers
@@ -48,8 +31,8 @@ This project demonstrates a complete end-to-end CI/CD pipeline for deploying a D
 │  │   Source Stage                │  │
 │  │   (GitHub/CodeCommit)         │  │
 │  └───────────┬───────────────────┘  │
-│              │                       │
-│              ▼                       │
+│              │                      │
+│              ▼                      │
 │  ┌───────────────────────────────┐  │
 │  │   Build Stage                 │  │
 │  │   (AWS CodeBuild)             │  │
@@ -58,42 +41,42 @@ This project demonstrates a complete end-to-end CI/CD pipeline for deploying a D
 │  │   - Push to ECR               │  │
 │  │   - Generate imagedefinitions │  │
 │  └───────────┬───────────────────┘  │
-│              │                       │
-│              ▼                       │
+│              │                      │
+│              ▼                      │
 │  ┌───────────────────────────────┐  │
 │  │   Deploy Stage                │  │
 │  │   (ECS Deployment)            │  │
 │  └───────────┬───────────────────┘  │
-└──────────────┼───────────────────────┘
+└──────────────┼──────────────────────┘
                │
                ▼
 ┌─────────────────────────────────────┐
-│      Amazon ECR                      │
-│   (Container Registry)               │
-│   Repository: ecr-web-app            │
-└──────────────┬───────────────────────┘
+│      Amazon ECR                     │
+│   (Container Registry)              │
+│   Repository: ecr-web-app           │
+└──────────────┬──────────────────────┘
                │
                ▼
 ┌─────────────────────────────────────┐
-│      Amazon ECS                      │
-│   (Container Service)                │
+│      Amazon ECS                     │
+│   (Container Service)               │
 │   - Cluster                         │
 │   - Service                         │
 │   - Task Definition                 │
 │   - Fargate/EC2 Launch Type         │
-└──────────────┬───────────────────────┘
+└──────────────┬──────────────────────┘
                │
                ▼
 ┌─────────────────────────────────────┐
-│   Application Load Balancer (ALB)    │
+│   Application Load Balancer (ALB)   │
 │   - Public Endpoint                 │
 │   - Health Checks                   │
-└──────────────┬───────────────────────┘
+└──────────────┬──────────────────────┘
                │
                ▼
 ┌─────────────────────────────────────┐
-│      End Users                       │
-│   (Web Browser)                      │
+│     End Users                       │
+│   (Web Browser)                     │
 └─────────────────────────────────────┘
 ```
 
@@ -1257,4 +1240,5 @@ For issues or questions:
 
 **Last Updated**: 2024
 **Version**: 1.0.0
+
 
